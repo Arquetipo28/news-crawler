@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 async function posts () {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto('https://www.milenio.com/ultima-hora');
   await page.waitForSelector("[class='content']")
