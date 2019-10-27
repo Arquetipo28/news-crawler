@@ -18,5 +18,9 @@ npm install
 And then run the application
 
 ````
+// Production
 npm run start
+
+// Development
+npm run test
 ````
