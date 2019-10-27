@@ -1,10 +1,12 @@
 const NewsController = require('../controllers/news');
 const NewsInstance = new NewsController();
+const express = require('express')
+const router = express.Router();
 
-module.exports = (app) => {
-  app.get('/', (req, res) => {
-    res.send('Root page')
-  })
+router.get('/', (_req, res) => {
+  res.send('Root page')
+})
 
-  app.get('/news', NewsInstance.all)
-}
+router.get('/news', NewsInstance.all)
+
+module.exports = router
