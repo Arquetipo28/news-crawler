@@ -6,7 +6,6 @@ class NewsController {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(await principalCrawler.posts()));
   }
-  
 }
 
 module.exports = NewsController
