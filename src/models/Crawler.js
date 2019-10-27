@@ -7,13 +7,17 @@ async function posts () {
   await page.waitForSelector("[class='content']");
   let wallData = await page.evaluate(e => {
     window.scrollTo(0, 500);
+    // Get all containers with the class equal to lr-row-news and create an array from them
     let elements = Array.from(document.querySelectorAll("[class='lr-row-news']"));
+    // Iterate through all found items
     let posts = elements.map(cont => {
+      // Searching elements by its parent classes
       let elTitle = cont.querySelector(".title-container > .title");
       let elContent = cont.querySelector(".title-container > .summary > span");
       let elDateTime = cont.querySelector("[class='hour']");
       let elPostLink = cont.querySelector(".title-container > .title > a");
-
+      
+      // Return JSON with the text inside the found elements
       return {
         title: (elTitle && elTitle.innerText) ? elTitle.innerText.replace('\n', ' ') : 'Not found',
         content: (elContent && elContent.innerText) ? elContent.innerText.replace('\n', ' ') : "No content found",
