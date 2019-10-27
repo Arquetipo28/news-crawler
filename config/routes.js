@@ -6,5 +6,5 @@ module.exports = (app) => {
     res.send('Root page')
   })
 
-  app.get('/linkedin/posts', NewsInstance.all)
+  app.get('/news', NewsInstance.all)
 }
